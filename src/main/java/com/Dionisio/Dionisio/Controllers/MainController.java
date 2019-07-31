@@ -12,7 +12,7 @@ public class MainController {
 		
 	@GetMapping
 	public String main() {
-		return "Pagina principal del cine Dionisio!!!";
+		return "It worked, yeah!!!";
 	}
 	
 }
