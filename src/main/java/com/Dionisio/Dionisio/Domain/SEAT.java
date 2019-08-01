@@ -22,16 +22,27 @@ public class SEAT {
 	private int NUMBER;
 	@Column
 	private String VIP;
+	@Column
+	private String STATE;
 	
 	public SEAT() {}
 
-	public SEAT(int sEAT_ID, int rOOM_ID, String rOW, int nUMBER, String vIP) {
+	public String getSTATE() {
+		return STATE;
+	}
+
+	public void setSTATE(String sTATE) {
+		STATE = sTATE;
+	}
+
+	public SEAT(int sEAT_ID, int rOOM_ID, String rOW, int nUMBER, String vIP, String sTATE) {
 		super();
 		SEAT_ID = sEAT_ID;
 		ROOM_ID = rOOM_ID;
 		ROW = rOW;
 		NUMBER = nUMBER;
 		VIP = vIP;
+		STATE = sTATE;
 	}
 
 	public int getSEAT_ID() {
