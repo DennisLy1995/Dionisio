@@ -1,11 +1,13 @@
 package com.Dionisio.Dionisio.Controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +30,14 @@ public class EmailController {
 	public List<EMAIL> getAllEmails() {
 		List<EMAIL> emails = repoE.findAll();
 		return emails;
+	}
+	
+	@GetMapping(path= {"/GetEmail/{email}"})
+	public EMAIL getByIdEmail(@PathVariable String email) {
+		EMAIL emailBd = null;
+		Optional<EMAIL> list = repoE.findById(email);
+		emailBd = repoE.getOne(email);
+		return emailBd;
 	}
 	
 	@PostMapping("/registerEmail")
